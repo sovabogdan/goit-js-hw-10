@@ -40,25 +40,23 @@ function handleSearch(event) {
         });
 };
 
-let country = null;
-
 function renderCountry(country) {
-   return refs.countryInfo.innerHTML = `
-    <div class="info-title">
-        <img src = "${country.flags.svg}" alt = Flag of "${country.name.official} class = "flag" ">
-        <p><span>Capital:</span>${country.capital}</p>
-        <p><span>Population:</span>${country.population}</p>
-        <p><span>Language:</span>${Object.values(country.languages).join(', ')}</p>
+   return `<div class="info-title">
+        <img src = "${country.flags.svg}" alt = 'Flag' width="40">
+        <span style="font-weight: bold; font-size: 30px;">${country.name.official}</span>
+        <p><span style="font-weight: bold;">Capital:</span>${country.capital}</p>
+        <p><span style="font-weight: bold;">Population:</span>${country.population}</p>
+        <p><span style="font-weight: bold;">Language:</span>${Object.values(country.languages).join(', ')}</p>
         </div>`;
 }
 
 function renderCountries(countries) {
     clearData();
    return countries.map(country => {
-        refs.countriesList.innerHTML = `
-        <li>
-            <img src = "${country.flags.svg}" alt = Flag of "${country.name.official}">
+       return `<li>
+            <img src = "${country.flags.svg}" alt = 'Flag' width="40">
             <span>${country.name.official}</span>
             </li>`;
-    });
+   }
+    ).join("");
 }
